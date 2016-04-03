@@ -1,0 +1,20 @@
+From README.TXT:
+
+	CARBON_HOME
+			|--- bin
+			|--- dbscripts
+			|--- lib
+			|--- repository
+			|       |--- components
+			|       |--- conf
+			|       |       |--- identity
+			|       |       |--- identity-providers
+			|       |       |--- service-providers
+			|       |--- database
+			|       |--- deployment
+			|       |--- logs
+			|       |--- resources
+			|       |       |--- identity
+			|       |       |--- security
+			|       |--- tenants
+			|--- tmp
