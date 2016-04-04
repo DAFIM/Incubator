@@ -1,0 +1,38 @@
+# setting up the DAFIM test host 1
+
+# defining the version of docker-compose to be used:
+version: "2"
+
+services:
+  wso2-is:
+    build: ./wso2-is/.
+#    volumes:
+#     - ./voting-app:/app
+    ports:
+      - "9443:9443"
+    networks:
+      - front-tier
+      - back-tier
+    links:
+      - db
+
+  db:
+    image: postgres:9.4
+    container_name: db
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+#	  /mnt/hgfs/win-host/data/pgdata
+    ports:
+      - "5432:5432"
+    networks:
+      - back-tier
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=admin
+
+volumes:
+  db-data:
+
+networks:
+  front-tier:
+  back-tier:
