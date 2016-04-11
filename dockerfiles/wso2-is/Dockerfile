@@ -31,10 +31,24 @@ RUN unzip ${WSO2IS_HOME_PRE}/wso2is.zip -d ${WSO2IS_HOME_PRE} \
 	
 EXPOSE 9443
 
+####################################################
+# Configure Postgres DB
+####################################################
+ENV JDBC_DRIVER postgresql-9.4.1208.jar
+RUN curl -o ${WSO2IS_HOME}/repository/components/lib/${JDBC_DRIVER} https://jdbc.postgresql.org/download/${JDBC_DRIVER}
+	
+# RUN ls -la 	${WSO2IS_HOME}/repository/components/lib
+# RUN echo "WSO2_CARBON_DB: ${WSO2_CARBON_DB}"
+
+# RUN cat ${WSO2IS_HOME}/bin/wso2server.sh
+
+
 # clean up
 RUN apk del curl && \
     apk del unzip && \
 	rm -rf /var/cache/apk/*
 
+RUN echo "`uname`"
+	
 #CMD ["${WSO2IS_HOME}/bin/wso2server.sh"]
 CMD ["/opt/wso2is/bin/wso2server.sh"]

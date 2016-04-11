@@ -18,3 +18,12 @@ From README.TXT:
 			|       |       |--- security
 			|       |--- tenants
 			|--- tmp
+
+Configure Postgres
+******************
+see https://docs.wso2.com/display/IS500/Setting+up+PostgreSQL			
+
+Download JDBC driver (for java 8 use JDBC42 Postgresql Driver, Version 9.4-1208):
+    https://jdbc.postgresql.org/download/postgresql-9.4.1208.jar
+into 
+	<PRODUCT_HOME>/repository/components/lib
