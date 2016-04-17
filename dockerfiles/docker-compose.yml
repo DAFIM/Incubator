@@ -15,6 +15,10 @@ services:
       - back-tier
     links:
       - db
+    depends_on:
+      - db
+    entrypoint: 
+      - ./wait-for-it.sh db:5432
 
   db:
     image: postgres:9.4
